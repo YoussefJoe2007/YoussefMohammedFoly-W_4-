@@ -1,0 +1,79 @@
+﻿@model IEnumerable<TeamMember>
+
+<div class="container mt-5">
+    <h1 class="text-center display-4 text-primary">TeamMember List</h1>
+
+    <table class="table table-striped table-hover text-center mt-4">
+        <thead class="table-dark text-white">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var X in Model)
+            {
+                <tr>
+                    <td>@X.Id</td>
+                    <td>@X.Name</td>
+                    <td>@X.Email</td>
+                    <td>@X.Role</td>
+                    <td>
+                        <div class="d-flex justify-content-center gap-2">
+
+                        <form method="post" action="/TeamMember/view">
+                            <input type="hidden" name="TM" value="@X.Id" />
+                                <button type="submit" class="btn btn-primary btn-sm">View </button>
+                        </form>
+                        <form action="/TeamMember/Delete" method="post" class="d-inline">
+                            <input type="hidden" name="id_input" value="@X.Id" />
+                            <button class="btn btn-danger btn-sm" title="Delete">
+                                <i class="bi bi-trash"></i> Delete
+                            </button>
+                        </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+
+
+<div class="container mt-5">
+    <h1 class="text-center display-4 text-primary">Create TeamMember</h1>
+
+    <div class="text-center mt-4">
+        <h3>Add a New TeamMember</h3>
+        <p class="text-muted">Fill in the details below to add a new TeamMember to the system.</p>
+    </div>
+
+    <div class="shadow p-4 rounded bg-light">
+        <form asp-action="_Create" asp-controller="TeamMember" method="post">
+            <div class="mb-3">
+                <label for="Name" class="form-label">Name</label>
+                <input type="text" id="Name" name="Name" class="form-control" placeholder="Enter Name" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Email" class="form-label">Email</label>
+                <input type="text" id="Email" name="Email" class="form-control" placeholder="Enter Email" required>
+            </div>
+
+            <div class="mb-3">
+                <label for="Role" class="form-label"> Role</label>
+                <input type="text" id="Role" name="Role" class="form-control" placeholder="Enter Role" required>
+
+            </div>
+          
+            <button type="submit" class="btn btn-primary w-100 mt-4 shadow-lg">Add TeamMember</button>
+        </form>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,26 @@
+﻿<form action="/project/Update" class="w-50 m-auto mt-5" method="post">
+    <input type="hidden" name="ID" value="@ViewData["id"]" />
+
+   @*  <label class="m-2">Status</label>
+    <select name="Status" class="form-control m-2" required>
+        <option value="Pending">Pending</option>
+        <option value="InProgress">InProgress</option>
+        <option value="Completed">Completed</option>
+    </select> *@
+
+    <label class="m-2">Name</label>
+    <input type="text" name="Name" class="form-control m-2" />
+    <label class="m-2">Title</label>
+    <input type="text" name="Title" class="form-control m-2" />
+
+    <label class="m-2">Description</label>
+    <input type="text" name="Description" class="form-control m-2" />
+
+    <label class="m-2">StartDate</label>
+    <input type="text" name="StartDate" class="form-control m-2" />
+
+    <label class="m-2">EndDate</label>
+    <input type="text" name="EndDate" class="form-control m-2" />
+
+    <button type="submit" class="btn btn-primary m-2">Update Job</button>
+</form>

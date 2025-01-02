@@ -1,0 +1,12 @@
+﻿<form action="/Job/Update" method="post" class="w-50 m-auto mt-5">
+    <input type="hidden" name="ID" value="@ViewData["id"]" />
+
+    <label for="Status" class="m-2">Status</label>
+    <select name="Status" id="Status" class="form-control m-2" required>
+        <option value="Pending">Pending</option>
+        <option value="InProgress">InProgress</option>
+        <option value="Completed">Completed</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary m-2">Update Job</button>
+</form>
