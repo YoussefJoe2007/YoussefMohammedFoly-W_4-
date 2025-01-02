@@ -4,6 +4,7 @@ using YoussefMohammedFoly_W_4_.Models;
 
 namespace YoussefMohammedFoly_W_4_.Controllers
 {
+    //Controller
     public class JobController : Controller
     {
         public DB_Connection _Context;
