@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using System;
 using YoussefMohammedFoly_W_4_.Data;
+using YoussefMohammedFoly_W_4_.Models;
 
 namespace YoussefMohammedFoly_W_4_
 {
@@ -13,6 +16,20 @@ namespace YoussefMohammedFoly_W_4_
             builder.Services.AddControllersWithViews();
             string connectionstring = builder.Configuration.GetConnectionString("x");
             builder.Services.AddDbContext<DB_Connection>(options => options.UseSqlServer(connectionstring));
+
+            builder.Services.AddIdentity<User, IdentityRole>(options =>
+            {
+                options.Password.RequireNonAlphanumeric = false;
+                options.Password.RequiredLength = 8;
+                options.Password.RequireUppercase = false;
+                options.Password.RequireLowercase = false;
+                options.User.RequireUniqueEmail = true;
+                options.SignIn.RequireConfirmedAccount = false;
+                options.SignIn.RequireConfirmedEmail = false;
+                options.SignIn.RequireConfirmedPhoneNumber = false;
+            })
+              .AddEntityFrameworkStores<DB_Connection>()
+              .AddDefaultTokenProviders();
 
 
             var app = builder.Build();
@@ -34,7 +51,8 @@ namespace YoussefMohammedFoly_W_4_
 
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Project}/{action=Index}/{id?}");
+                pattern: "{controller=Account}/{action=Register}/{id?}");
+
 
             app.Run();
         }

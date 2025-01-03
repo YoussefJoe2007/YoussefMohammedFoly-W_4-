@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using YoussefMohammedFoly_W_4_.Data;
 
@@ -11,9 +12,11 @@ using YoussefMohammedFoly_W_4_.Data;
 namespace YoussefMohammedFoly_W_4_.Migrations
 {
     [DbContext(typeof(DB_Connection))]
-    partial class DB_ConnectionModelSnapshot : ModelSnapshot
+    [Migration("20250103155622_Mig")]
+    partial class Mig
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
